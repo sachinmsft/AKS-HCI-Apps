@@ -35,7 +35,13 @@ View the list of available dashboards.
 Click on a dashboard to see the Grafana view with statistics being collected by Prometheus.
 ![grafana-05](images/grafana-05.jpg)
 
+***Note: Please run below powershell command to restart Grafana port-forward If it is terminated for any reason.***
 
+```
+start-process -FilePath "kubectl.exe" -ArgumentList "--kubeconfig=<target cluster kubeconfig file path> port-forward svc/prometheus-grafana <forwardingLocalPort>:80 -n=<namespace>"
+e.g.
+start-process -FilePath "kubectl.exe" -ArgumentList "--kubeconfig=C:\wssd\mycluster-kubeconfig port-forward svc/prometheus-grafana 3000:80 -n=monitoring"
+```
 ## Steps to uninstall monitoring:
 
 * Run below command to uninstall monitoring stack.
