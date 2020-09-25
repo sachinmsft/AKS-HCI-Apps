@@ -1,4 +1,3 @@
-# ENTRYPOINT
 $ErrorActionPreference = 'Stop'
 function Create-Directory {
     param (
@@ -6,7 +5,6 @@ function Create-Directory {
     )
     if (Test-Path -Path $Path) {
         if (-not (Test-Path -Path $Path -PathType Container)) {
-            # clean the same path file
             Remove-Item -Recurse -Force -Path $Path -ErrorAction Ignore | Out-Null
         }
         return
@@ -33,7 +31,6 @@ Transfer-File -Src "c:\etc\windows-exporter\windows-exporter.exe" -Dst "c:\host\
 
 $winsPath = "c:\etc\windows-exporter\windows-exporter.exe"
 Write-Output "winsPath is: $($winsPath)"
-# default
 $listenPort = "9182"
 Write-Output "ListenPort is: $($listenPort)"
 $enabledCollectors = "cpu,cs,logical_disk,net,os,system,container,memory"
@@ -42,7 +39,6 @@ Write-Output "Collectors are: $($enabledCollectors)"
 $winsExposes = $('TCP:{0}' -f $listenPort)
 Write-Output "winsExposes is: $($winsExposes)"
 
-# format "--a=b --c=d"
 $winsArgs = $('--collectors.enabled={0} --telemetry.addr=:{1}' -f $enabledCollectors, $listenPort)
 Write-Output "winsArgs is: $($winsArgs)"
 
