@@ -683,7 +683,7 @@ data:
                             "expr": "sum(namespace_pod_container:windows_container_cpu_usage_seconds_total:sum_rate) by (namespace)",
                             "format": "time_series",
                             "intervalFactor": 2,
-                            "legendFormat": "{{`{{namespace}}`}}",
+                            "legendFormat": "{{namespace}}",
                             "legendLink": null,
                             "step": 10
                         }
@@ -1000,7 +1000,7 @@ data:
                             "expr": "sum(windows_container_private_working_set_usage{}) by (namespace)",
                             "format": "time_series",
                             "intervalFactor": 2,
-                            "legendFormat": "{{`{{namespace}}`}}",
+                            "legendFormat": "{{namespace}}",
                             "legendLink": null,
                             "step": 10
                         }
@@ -1402,7 +1402,7 @@ data:
                         "expr": "sum(namespace_pod_container:windows_container_cpu_usage_seconds_total:sum_rate{namespace=\"$namespace\"}) by (pod)",
                         "format": "time_series",
                         "intervalFactor": 2,
-                        "legendFormat": "{{`{{pod}}`}}",
+                        "legendFormat": "{{pod}}",
                         "legendLink": null,
                         "step": 10
                     }
@@ -1719,7 +1719,7 @@ data:
                         "expr": "sum(windows_container_private_working_set_usage{namespace=\"$namespace\"}) by (pod)",
                         "format": "time_series",
                         "intervalFactor": 2,
-                        "legendFormat": "{{`{{pod}}`}}",
+                        "legendFormat": "{{pod}}",
                         "legendLink": null,
                         "step": 10
                     }
@@ -2141,7 +2141,7 @@ data:
                         "expr": "sum(namespace_pod_container:windows_container_cpu_usage_seconds_total:sum_rate{namespace=\"$namespace\", pod=\"$pod\"}) by (container)",
                         "format": "time_series",
                         "intervalFactor": 2,
-                        "legendFormat": "{{`{{container}}`}}",
+                        "legendFormat": "{{container}}",
                         "legendLink": null,
                         "step": 10
                     }
@@ -2458,7 +2458,7 @@ data:
                         "expr": "sum(windows_container_private_working_set_usage{namespace=\"$namespace\", pod=\"$pod\"}) by (container)",
                         "format": "time_series",
                         "intervalFactor": 2,
-                        "legendFormat": "{{`{{container}}`}}",
+                        "legendFormat": "{{container}}",
                         "legendLink": null,
                         "step": 10
                     }
@@ -2778,14 +2778,14 @@ data:
                         "expr": "sort_desc(sum by (container) (rate(windows_container_network_received_bytes_total{namespace=\"$namespace\", pod=\"$pod\"}[1m])))",
                         "format": "time_series",
                         "intervalFactor": 2,
-                        "legendFormat": "Received : {{`{{container}}`}}",
+                        "legendFormat": "Received : {{container}}",
                         "refId": "A"
                     },
                     {
                         "expr": "sort_desc(sum by (container) (rate(windows_container_network_transmitted_bytes_total{namespace=\"$namespace\", pod=\"$pod\"}[1m])))",
                         "format": "time_series",
                         "intervalFactor": 2,
-                        "legendFormat": "Transmitted : {{`{{container}}`}}",
+                        "legendFormat": "Transmitted : {{container}}",
                         "refId": "B"
                     }
                 ],
@@ -2997,7 +2997,7 @@ data:
                         "expr": "node:windows_node_cpu_utilisation:avg1m * node:windows_node_num_cpu:sum / scalar(sum(node:windows_node_num_cpu:sum))",
                         "format": "time_series",
                         "intervalFactor": 2,
-                        "legendFormat": "{{`{{instance}}`}}",
+                        "legendFormat": "{{instance}}",
                         "legendLink": "./d/96e7484b0bb53b74fbc2bcb7723cd40b/k8s-windows-node-rsrc-use",
                         "step": 10
                     }
@@ -3085,7 +3085,7 @@ data:
                         "expr": "node:windows_node_memory_utilisation:ratio",
                         "format": "time_series",
                         "intervalFactor": 2,
-                        "legendFormat": "{{`{{instance}}`}}",
+                        "legendFormat": "{{instance}}",
                         "legendLink": "./d/96e7484b0bb53b74fbc2bcb7723cd40b/k8s-windows-node-rsrc-use",
                         "step": 10
                     }
@@ -3161,7 +3161,7 @@ data:
                         "expr": "node:windows_node_memory_swap_io_pages:irate",
                         "format": "time_series",
                         "intervalFactor": 2,
-                        "legendFormat": "{{`{{instance}}`}}",
+                        "legendFormat": "{{instance}}",
                         "legendLink": "./d/96e7484b0bb53b74fbc2bcb7723cd40b/k8s-windows-node-rsrc-use",
                         "step": 10
                     }
@@ -3249,7 +3249,7 @@ data:
                         "expr": "node:windows_node_disk_utilisation:avg_irate / scalar(node:windows_node:sum)",
                         "format": "time_series",
                         "intervalFactor": 2,
-                        "legendFormat": "{{`{{instance}}`}}",
+                        "legendFormat": "{{instance}}",
                         "legendLink": "./d/96e7484b0bb53b74fbc2bcb7723cd40b/k8s-windows-node-rsrc-use",
                         "step": 10
                     }
@@ -3337,7 +3337,7 @@ data:
                         "expr": "node:windows_node_net_utilisation:sum_irate",
                         "format": "time_series",
                         "intervalFactor": 2,
-                        "legendFormat": "{{`{{instance}}`}}",
+                        "legendFormat": "{{instance}}",
                         "legendLink": "./d/96e7484b0bb53b74fbc2bcb7723cd40b/k8s-windows-node-rsrc-use",
                         "step": 10
                     }
@@ -3413,7 +3413,7 @@ data:
                         "expr": "node:windows_node_net_saturation:sum_irate",
                         "format": "time_series",
                         "intervalFactor": 2,
-                        "legendFormat": "{{`{{instance}}`}}",
+                        "legendFormat": "{{instance}}",
                         "legendLink": "./d/96e7484b0bb53b74fbc2bcb7723cd40b/k8s-windows-node-rsrc-use",
                         "step": 10
                     }
@@ -3501,7 +3501,7 @@ data:
                         "expr": "sum by (instance)(node:windows_node_filesystem_usage:)\n",
                         "format": "time_series",
                         "intervalFactor": 2,
-                        "legendFormat": "{{`{{instance}}`}}'",
+                        "legendFormat": "{{instance}}",
                         "legendLink": "./d/96e7484b0bb53b74fbc2bcb7723cd40b/k8s-windows-node-rsrc-use",
                         "step": 10
                     }
@@ -3750,7 +3750,7 @@ data:
                         "expr": "sum by (core) (irate(windows_cpu_time_total{job=\"wmi-exporter\", mode!=\"idle\", instance=\"$instance\"}[5m]))",
                         "format": "time_series",
                         "intervalFactor": 2,
-                        "legendFormat": "{{`{{core}}`}}",
+                        "legendFormat": "{{core}}",
                         "legendLink": null,
                         "step": 10
                     }
@@ -4447,7 +4447,7 @@ data:
                         "expr": "node:windows_node_filesystem_usage:{instance=\"$instance\"}\n",
                         "format": "time_series",
                         "intervalFactor": 2,
-                        "legendFormat": "{{`{{volume}}`}}",
+                        "legendFormat": "{{volume}}",
                         "legendLink": null,
                         "step": 10
                     }
